@@ -1,0 +1,29 @@
+{
+    "name": "kiaanphp/kiaan",
+    "description": "Kiaan PHP framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hassan kerdash",
+            "email": "kerdashhassan@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "ext-mbstring":"*",
+        "ext-json": "*",
+        "kiaanphp/framework" : "1.*"
+    },
+    "suggest": {
+        "ext-intl": "Intl extension is useful for validating formatted numbers"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "App\\" : ""
+        },
+        "files" : [
+            "helpers.php"
+        ]
+    }
+}
