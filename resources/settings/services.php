@@ -33,14 +33,26 @@ class Services {
     *
     */
     public function handle() {
+        // Routes helpers
+        $this->routesHelpers();
+
         // Views helpers
-        $this->viewsHelpers();
+        $this->viewsHelpers();       
 
         // Validator rules
         $this->validatorRules();
 
         // Cli commands
         $this->cliCommands();
+    }
+    
+    /* 
+    * Routes helpers
+    *
+    */
+    public function routesHelpers() {
+        // Run routes helpers
+        (new \App\Application\Helpers\Routes)->handle();
     }
 
     /* 
@@ -49,7 +61,7 @@ class Services {
     */
     public function viewsHelpers() {
         // Run views helpers
-        (new \App\Application\Helpers\Views)->handle();
+       (new \App\Application\Helpers\Views)->handle();
     }
 
     /* 
@@ -57,13 +69,10 @@ class Services {
     *
     */
     public function validatorRules() {
-        // List
-        $list = [
-            "Hello_World" => "Hello_World",
-        ];
-
         // Validator rules
-        Validator::addRules($list);
+        Validator::addRules([
+            "helloWorld" => "Hello_World",
+        ]);
     }
 
     /* 
@@ -71,13 +80,10 @@ class Services {
     *
     */
     public function cliCommands() {
-        // List
-        $list = [
-            "Hello_World" => "Hello_World",
-        ];
-
         // Cli commands
-        Cli::addCommands($list);
+        Cli::addCommands([
+            "helloWorld" => "Hello_World",
+        ]);
     }
     
 }

@@ -1,0 +1,69 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "91b891e9691b061a5f67fccdcb6c05de",
+    "packages": [
+        {
+            "name": "kiaanphp/framework",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kiaanphp/framework.git",
+                "reference": "e93e324f11a7c1678fc449ed350028f76e0429a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kiaanphp/framework/zipball/e93e324f11a7c1678fc449ed350028f76e0429a7",
+                "reference": "e93e324f11a7c1678fc449ed350028f76e0429a7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*"
+            },
+            "suggest": {
+                "ext-intl": "Intl extension is useful for validating formatted numbers"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Helpers/helper.php"
+                ],
+                "psr-4": {
+                    "Kiaan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hassan Kerdash",
+                    "email": "kerdashhassan@gmail.com"
+                }
+            ],
+            "description": "Kiaan PHP framework",
+            "support": {
+                "issues": "https://github.com/kiaanphp/framework/issues",
+                "source": "https://github.com/kiaanphp/framework/tree/1.0"
+            },
+            "time": "2022-05-28T09:40:11+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "ext-mbstring": "*",
+        "ext-json": "*"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
+}

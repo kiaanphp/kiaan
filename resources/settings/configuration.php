@@ -39,7 +39,11 @@ return [
     |
     */
     'configuration' => [
-        "path" => "resources/config"
+        "path" => "resources/config",
+        "database" => [
+            "migration" => false,
+            "table" => "config"
+        ]
     ],
     /*--------------------------------------------------------------------------
     | End

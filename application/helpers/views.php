@@ -38,7 +38,7 @@ class Views {
          * Blob
          *
         */
-        View::helper("blob",function($arg){
+        View::addHelper("blob",function($arg){
             return ('data:;base64,'.base64_encode($arg));
         });
         #--------------------------------------------------
@@ -48,7 +48,7 @@ class Views {
          * Limit
          *
         */
-        View::helper("limit",function($arg, $limit, $symbol='...'){
+        View::addHelper("limit",function($arg, $limit, $symbol='...'){
             return substr_replace($arg, $symbol, $limit);
         });
         #--------------------------------------------------
@@ -58,7 +58,7 @@ class Views {
          * Lower
          *
         */
-        View::helper("lower",function($arg){
+        View::addHelper("lower",function($arg){
             return strtolower($arg);
         });
         #--------------------------------------------------
@@ -68,7 +68,7 @@ class Views {
          * Substr
          *
         */
-        View::helper("substr",function($arg, $frist, $second=1) {
+        View::addHelper("substr",function($arg, $frist, $second=1) {
             return substr($arg, $frist, $second);
         });
         #--------------------------------------------------
@@ -78,7 +78,7 @@ class Views {
          * Upper
          *
         */
-        View::helper("upper",function($arg) {
+        View::addHelper("upper",function($arg) {
             return strtoupper($arg);
         });
         #--------------------------------------------------        

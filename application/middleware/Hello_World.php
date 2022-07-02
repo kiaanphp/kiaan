@@ -33,7 +33,7 @@ class Hello_World implements MiddlewareBuild {
     public function handle() {
 
         if (1 !== 1) {
-            die("Hello World!");
+            exit("Hello World!");
         }
 
     }
