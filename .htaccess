@@ -1,0 +1,200 @@
+#-------------------------------------------------
+#**
+# Enable rewrite engine
+#**
+RewriteEngine On
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# Public folder
+#**
+RewriteRule ^public/ - [L]
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# Run index.php
+#**
+RewriteCond %{REQUEST_FILENAME}  -f [OR]
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+RewriteRule !index\.php$ index.php [L]
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# Indexes false
+#**
+Options -Indexes
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# Hiding Your .htaccess file
+#**
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# Error 
+#**
+ErrorDocument 403 /%{REQUEST_URI}
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# Caching
+#**
+<IfModule mod_expires.c>
+        ExpiresActive on
+        ExpiresDefault                                    "access plus 1 month"
+    # CSS
+        ExpiresByType text/css                            "access plus 1 year"
+    # Data interchange
+        ExpiresByType application/json                    "access plus 0 seconds"
+        ExpiresByType application/xml                     "access plus 0 seconds"
+        ExpiresByType text/xml                            "access plus 0 seconds"
+    # Favicon (cannot be renamed!)
+        ExpiresByType image/x-icon                        "access plus 1 week"
+    # HTML components (HTCs)
+        ExpiresByType text/x-component                    "access plus 1 month"
+    # HTML
+        ExpiresByType text/html                           "access plus 0 seconds"
+    # JavaScript
+        ExpiresByType application/javascript              "access plus 1 year"
+    # Manifest files
+        ExpiresByType application/x-web-app-manifest+json "access plus 0 seconds"
+        ExpiresByType text/cache-manifest                 "access plus 0 seconds"
+    # Media
+        ExpiresByType audio/ogg                           "access plus 1 month"
+        ExpiresByType image/gif                           "access plus 1 month"
+        ExpiresByType image/jpeg                          "access plus 1 month"
+        ExpiresByType image/png                           "access plus 1 month"
+        ExpiresByType video/mp4                           "access plus 1 month"
+        ExpiresByType video/ogg                           "access plus 1 month"
+        ExpiresByType video/webm                          "access plus 1 month"
+    # Web feeds
+        ExpiresByType application/atom+xml                "access plus 1 hour"
+        ExpiresByType application/rss+xml                 "access plus 1 hour"
+    # Web fonts
+        ExpiresByType application/font-woff2              "access plus 1 month"
+        ExpiresByType application/font-woff               "access plus 1 month"
+        ExpiresByType application/vnd.ms-fontobject       "access plus 1 month"
+        ExpiresByType application/x-font-ttf              "access plus 1 month"
+        ExpiresByType font/opentype                       "access plus 1 month"
+        ExpiresByType image/svg+xml                       "access plus 1 month"
+</IfModule>
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# Compress HTML, CSS, JavaScript, Text, XML and fonts
+#**
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE application/x-font
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  
+  # Remove browser bugs (only needed for really old browsers)
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary User-Agent
+</IfModule>
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# MIME types on Your Server
+#**
+AddType application/macbinhex-40 hqx
+AddType application/netalive net
+AddType application/netalivelink nel
+AddType application/octet-stream bin exe
+AddType application/oda oda
+AddType application/pdf pdf
+AddType application/postscript ai eps ps
+AddType application/rtf rtf
+AddType application/x-bcpio bcpio
+AddType application/x-cpio cpio
+AddType application/x-csh csh
+AddType application/x-director dcr
+AddType application/x-director dir
+AddType application/x-director dxr
+AddType application/x-dvi dvi
+AddType application/x-gtar gtar
+AddType application/x-hdf hdf
+AddType application/x-httpd-cgi cgi
+AddType application/x-latex latex
+AddType application/x-mif mif
+AddType application/x-netcdf nc cdf
+AddType application/x-onlive sds
+AddType application/x-sh sh
+AddType application/x-shar shar
+AddType application/x-sv4cpio sv4cpio
+AddType application/x-sv4crc sv4crc
+AddType application/x-tar tar
+AddType application/x-tcl tcl
+AddType application/x-tex tex
+AddType application/x-texinfo texinfo texi
+AddType application/x-troff t tr roff
+AddType application/x-troff-man man
+AddType application/x-troff-me me
+AddType application/x-troff-ms ms
+AddType application/x-ustar ustar
+AddType application/x-wais-source src
+AddType application/zip zip
+AddType audio/basic au snd
+AddType audio/x-aiff aif aiff aifc
+AddType audio/x-midi mid
+AddType audio/x-pn-realaudio ram
+AddType audio/x-wav wav
+AddType image/gif gif GIF
+AddType image/ief ief
+AddType image/jpeg jpeg jpg jpe JPG
+AddType image/tiff tiff tif
+AddType image/x-cmu-raster ras
+AddType image/x-portable-anymap pnm
+AddType image/x-portable-bitmap pbm
+AddType image/x-portable-graymap pgm
+AddType image/x-portable-pixmap ppm
+AddType image/x-rgb rgb
+AddType image/x-xbitmap xbm
+AddType image/x-xpixmap xpm
+AddType image/x-xwindowdump xwd
+AddType text/html html htm
+AddType text/plain txt
+AddType text/richtext rtx
+AddType text/tab-separated-values tsv
+AddType text/x-server-parsed-html shtml sht
+AddType text/x-setext etx
+AddType video/mpeg mpeg mpg mpe
+AddType video/quicktime qt mov
+AddType video/x-msvideo avi
+AddType video/x-sgi-movie movie
+AddType x-world/x-vrml wrl 
+#-------------------------------------------------

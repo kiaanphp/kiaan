@@ -1,0 +1,35 @@
+#-------------------------------------------------
+# Hiding Your .htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# Indexes false
+#**
+Options -Indexes
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# Error 
+#**
+ErrorDocument 403 "<h1>Sorry!</h1><hr><b>You don't have permission to access this resource.!</b>"
+#-------------------------------------------------
+
+#-------------------------------------------------
+#**
+# Prevent .ini and other files from being open from web browser
+#**
+<filesMatch ".*\.(htaccess|htpasswd|ini|phps|php|log)$">
+ Order Allow,Deny
+ Deny from all
+</filesMatch>
+<filesMatch "phprc$">
+ Order Allow,Deny
+ Deny from all
+</filesMatch>
+#-------------------------------------------------
